@@ -10,6 +10,9 @@ export default {
                 sans: ['Inter', 'sans-serif'],
                 serif: ['Playfair Display', 'serif'],
             },
+            animation: {
+                'spin-slow': 'spin 20s linear infinite',
+            },
         },
     },
     plugins: [],
