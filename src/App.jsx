@@ -3,6 +3,7 @@ import {
   Calendar, MapPin, ArrowRight, Users, Clock, Download, ShieldCheck, Mail, Globe, Menu, X, ChevronRight, BookOpen, Award, Search, ExternalLink, Plus, Linkedin, Twitter, FileText, Briefcase, GraduationCap, Microscope, ArrowUpRight
 } from 'lucide-react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 // Assets
 import logoImg from './assets/iilm-logo.png';
@@ -162,6 +163,7 @@ const App = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [showToast, setShowToast] = useState(false);
   const [showAboutModal, setShowAboutModal] = useState(false);
+  const [showRegisterModal, setShowRegisterModal] = useState(false);
   const { scrollY } = useScroll();
 
   // Parallax effects
@@ -200,6 +202,72 @@ const App = () => {
               <p className="text-sm font-bold uppercase tracking-widest">Coming Soon</p>
               <p className="text-xs text-slate-400">Community features are launching next week.</p>
             </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* --- REGISTRATION MODAL --- */}
+      <AnimatePresence>
+        {showRegisterModal && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] bg-slate-900/60 backdrop-blur-md flex items-center justify-center p-4 md:p-8"
+            onClick={() => setShowRegisterModal(false)}
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 50, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 50, scale: 0.95 }}
+              onClick={(e) => e.stopPropagation()}
+              className="bg-white w-full max-w-lg rounded-sm shadow-2xl relative flex flex-col overflow-hidden"
+            >
+              <div className="p-8 border-b border-slate-100 bg-slate-50/50 flex justify-between items-center">
+                <div>
+                  <p className="text-[10px] uppercase font-bold tracking-[0.2em] text-emerald-600 mb-2">ICADC 2026</p>
+                  <h2 className="text-2xl font-serif text-slate-900">Secure Your Spot</h2>
+                </div>
+                <button
+                  onClick={() => setShowRegisterModal(false)}
+                  className="p-2 hover:bg-slate-100 rounded-full transition-colors"
+                >
+                  <X size={20} className="text-slate-500" />
+                </button>
+              </div>
+
+              <div className="p-8 space-y-6">
+                <form className="space-y-4" onSubmit={(e) => { e.preventDefault(); setShowRegisterModal(false); setShowToast(true); }}>
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-widest text-slate-500 mb-2">Full Name</label>
+                    <input type="text" className="w-full bg-slate-50 border border-slate-200 p-3 text-sm focus:border-emerald-500 outline-none transition-colors rounded-sm" placeholder="Dr. Jane Doe" required />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-widest text-slate-500 mb-2">Email Address</label>
+                    <input type="email" className="w-full bg-slate-50 border border-slate-200 p-3 text-sm focus:border-emerald-500 outline-none transition-colors rounded-sm" placeholder="jane@university.edu" required />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-widest text-slate-500 mb-2">Affiliation</label>
+                    <input type="text" className="w-full bg-slate-50 border border-slate-200 p-3 text-sm focus:border-emerald-500 outline-none transition-colors rounded-sm" placeholder="Department of Computer Science" />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-widest text-slate-500 mb-2">Registration Type</label>
+                    <select className="w-full bg-slate-50 border border-slate-200 p-3 text-sm focus:border-emerald-500 outline-none transition-colors rounded-sm">
+                      <option>Academic Delegate</option>
+                      <option>Industry Professional</option>
+                      <option>Student / Research Scholar</option>
+                    </select>
+                  </div>
+
+                  <div className="pt-4">
+                    <button type="submit" className="w-full bg-slate-950 text-white py-4 text-xs font-bold uppercase tracking-[0.2em] hover:bg-emerald-600 transition-colors shadow-lg">
+                      Proceed to Payment
+                    </button>
+                    <p className="text-center text-[10px] text-slate-400 mt-4">Secure payment powered by Stripe. Early bird rates apply.</p>
+                  </div>
+                </form>
+              </div>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -325,20 +393,18 @@ const App = () => {
             <NavItem href="#milestones" label="Dates" scrolled={true} />
             <NavItem href="#workshops" label="Workshops" scrolled={true} />
 
-            <button
-              onClick={() => {
-                setShowToast(true);
-                setTimeout(() => setShowToast(false), 3000);
-              }}
+            <Link
+              to="/community"
               className="relative text-xs font-bold uppercase tracking-[0.2em] transition-colors duration-300 group text-slate-600 hover:text-slate-950"
             >
-              Community
+              Committee
               <span className="absolute -bottom-2 left-0 w-full h-[1px] bg-slate-950 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
-            </button>
+            </Link>
 
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => setShowRegisterModal(true)}
               className="px-8 py-3 text-[10px] font-bold uppercase tracking-[0.25em] transition-all shadow-lg bg-slate-950 text-white shadow-slate-900/10 hover:bg-emerald-600"
             >
               Register Now
@@ -349,6 +415,7 @@ const App = () => {
             {/* Sticky Mobile Register Button */}
             <motion.button
               whileTap={{ scale: 0.95 }}
+              onClick={() => setShowRegisterModal(true)}
               className="px-4 py-2 text-[9px] font-bold uppercase tracking-widest rounded-sm bg-slate-950 text-white shadow-md"
             >
               Register
@@ -374,17 +441,17 @@ const App = () => {
                 {item}
               </a>
             ))}
-            <button
-              onClick={() => {
-                setIsMenuOpen(false);
-                setShowToast(true);
-                setTimeout(() => setShowToast(false), 3000);
-              }}
+            <Link
+              to="/community"
+              onClick={() => setIsMenuOpen(false)}
               className="text-3xl font-serif text-slate-900 hover:italic transition-all"
             >
-              Community
-            </button>
-            <button className="mt-8 bg-slate-950 text-white px-10 py-4 text-xs font-bold uppercase tracking-widest">
+              Committee
+            </Link>
+            <button
+              onClick={() => { setIsMenuOpen(false); setShowRegisterModal(true); }}
+              className="mt-8 bg-slate-950 text-white px-10 py-4 text-xs font-bold uppercase tracking-widest"
+            >
               Register
             </button>
           </motion.div>
@@ -440,11 +507,11 @@ const App = () => {
               <div className="relative">
                 <motion.h1
                   variants={fadeInUp}
-                  className="text-5xl md:text-8xl lg:text-[7rem] font-serif font-medium text-slate-900 leading-[1] md:leading-[0.95] tracking-tighter"
+                  className="text-5xl md:text-8xl lg:text-[7rem] font-sans font-bold text-slate-900 leading-[1] md:leading-[0.95] tracking-tighter"
                 >
                   <span className="block text-2xl md:text-5xl font-sans font-light text-slate-400 mb-2 md:mb-4 tracking-normal">International Conference on</span>
                   AI-Driven <br />
-                  <span className="italic relative inline-block">
+                  <span className="relative inline-block">
                     Cybersecurity
                     <motion.div
                       initial={{ width: 0 }}
@@ -462,6 +529,15 @@ const App = () => {
                 Join leading minds to redefine the architecture of trust.
               </motion.p>
 
+              {/* Mobile Date Banner - Hidden on large screens where cards are visible */}
+              <motion.div variants={fadeInUp} className="lg:hidden flex items-center gap-4 py-3 px-4 bg-white/80 backdrop-blur-sm border border-slate-200 rounded-sm shadow-sm">
+                <Calendar size={18} className="text-emerald-600" />
+                <div>
+                  <p className="text-sm font-bold text-slate-900">Oct 09-10, 2026</p>
+                  <p className="text-xs text-slate-500">IILM University, Greater Noida</p>
+                </div>
+              </motion.div>
+
               {/* Timer & CTAs */}
               <motion.div variants={fadeInUp} className="flex flex-col gap-8">
                 <CountdownTimer />
@@ -470,6 +546,7 @@ const App = () => {
                   <motion.button
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
+                    onClick={() => document.getElementById('workflow')?.scrollIntoView({ behavior: 'smooth' })}
                     className="flex-1 md:flex-none px-6 md:px-10 py-4 md:py-5 bg-slate-900 text-white text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] shadow-xl rounded-sm flex items-center justify-center gap-3 group"
                   >
                     Submit Paper <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
@@ -477,6 +554,7 @@ const App = () => {
                   <motion.button
                     whileHover={{ scale: 1.02, backgroundColor: "#fff" }}
                     whileTap={{ scale: 0.98 }}
+                    onClick={() => document.getElementById('expectations')?.scrollIntoView({ behavior: 'smooth' })}
                     className="flex-1 md:flex-none px-6 md:px-10 py-4 md:py-5 bg-white/50 backdrop-blur-sm border border-slate-200 text-slate-900 text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] rounded-sm flex items-center justify-center gap-3 hover:border-slate-300 transition-colors"
                   >
                     View Tracks
@@ -849,6 +927,7 @@ const App = () => {
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
+                      onClick={() => setShowRegisterModal(true)}
                       className="bg-slate-900 text-white px-8 py-3 text-[10px] font-bold uppercase tracking-widest hover:bg-blue-700 transition-colors rounded-sm"
                     >
                       Reserve Seat
@@ -862,7 +941,7 @@ const App = () => {
       </section>
 
       {/* --- FOOTER --- */}
-      <footer className="bg-slate-950 text-white pt-32 pb-12 border-t border-slate-900">
+      <footer id="contact" className="bg-slate-950 text-white pt-32 pb-12 border-t border-slate-900">
         <div className="container mx-auto px-6 md:px-12">
           <div className="grid lg:grid-cols-4 gap-16 mb-24 border-b border-white/10 pb-16">
             <div className="lg:col-span-2">
@@ -888,7 +967,7 @@ const App = () => {
               <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-slate-500 mb-8">Navigation</h4>
               <ul className="space-y-4">
                 {['About', 'Tracks', 'Workshops', 'Contact'].map(item => (
-                  <li key={item}><a href="#" className="text-sm text-slate-300 hover:text-white transition-colors">{item}</a></li>
+                  <li key={item}><a href={`#${item.toLowerCase()}`} className="text-sm text-slate-300 hover:text-white transition-colors">{item}</a></li>
                 ))}
               </ul>
             </div>
