@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Users, Globe, Award, BookOpen, Megaphone, DollarSign, Share2, Briefcase } from 'lucide-react';
 import logoImg from '../assets/iilm-logo.png';
+import icabcrLogo from '../assets/icabcr-logo.jpg';
+import novaLogo from '../assets/nova-logo.jpg';
+import scopusLogo from '../assets/scopus-logo.png';
 
 const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
@@ -65,16 +68,17 @@ const COMMITTEE_DATA = {
         { name: "Dr. Munish Sabharwal", affiliation: "IILM University, Greater Noida" },
         { name: "Dr. Alok Agarwal", affiliation: "IILM University, Greater Noida" },
         { name: "Dr. Ravi S Iyer", affiliation: "IISc Bengaluru, India" },
+        { name: "Dr. Babusena Paul", affiliation: "University of Johannesburg, South Africa" },
     ],
     organizingChairs: [
-        { name: "Dr. Ajay Prasad", affiliation: "IILM University, Greater Noida" },
+        { name: "Dr. Ajay Prasad", affiliation: "IILM University, Greater Noida (Convenor)" },
         { name: "Dr. Alok Agarwal", affiliation: "IILM University, Greater Noida" },
-        { name: "Dr. Babusena Paul", affiliation: "Director, Institute for Intelligent Systems, University of Johannesburg, South Africa" },
+        { name: "Dr. Shamik Tiwari", affiliation: "IILM University, Greater Noida" },
     ],
-    organizingCoChairs: [
-        { name: "Dr. Saurabh Shanu", affiliation: "General Secretary" },
-        { name: "Dr. Urvashi Amitkumar Joshi", affiliation: "Secretary" },
-        { name: "Dr. Ahmed Elnger", affiliation: "Beni-Suef University, Egypt" },
+    secretaries: [
+        { name: "Dr. Saurabh Shanu", affiliation: "Secretary, IILM University, Greater Noida" },
+        { name: "Dr. Kingshuk Srivastava", affiliation: "Secretary, IILM University, Greater Noida" },
+        { name: "Dr. Himanshu Sharma", affiliation: "Secretary (TPC), IILM University, Greater Noida" },
     ],
     programChairs: [
         { name: "Dr. Saad Aldosary", affiliation: "Dept. of Computer Science, King Saud University, Saudi Arabia" },
@@ -236,12 +240,12 @@ const Community = () => {
                 <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
                     <Link to="/" className="flex items-center gap-4 group">
                         <img src={logoImg} alt="IILM Logo" className="h-10 w-auto object-contain opacity-90 group-hover:opacity-100 transition-all" />
-                        <div className="flex flex-col">
-                            <span className="font-sans font-bold text-xl tracking-tighter flex items-center gap-2 text-slate-950">
-                                ICADC <span className="font-light text-slate-400">2026</span>
-                            </span>
-                            <span className="text-[8px] uppercase tracking-[0.3em] font-bold text-slate-500">Organizing Committee</span>
-                        </div>
+                        <span className="w-[1px] h-7 bg-slate-200"></span>
+                        <img
+                            src={icabcrLogo}
+                            alt="ICABCR 2026"
+                            className="h-9 w-auto object-contain mix-blend-multiply opacity-90 group-hover:opacity-100 transition-all"
+                        />
                     </Link>
                     <Link
                         to="/"
@@ -269,11 +273,11 @@ const Community = () => {
                     >
                         <div className="flex items-center gap-4 mb-6">
                             <span className="h-[1px] w-12 bg-emerald-400"></span>
-                            <p className="text-xs uppercase tracking-[0.3em] font-bold text-emerald-400">ICADC 2026</p>
+                            <p className="text-xs uppercase tracking-[0.3em] font-bold text-emerald-400">ICABCR 2026</p>
                         </div>
                         <h1 className="text-4xl md:text-6xl font-bold mb-6">Organizing Committee</h1>
                         <p className="text-lg text-slate-400 max-w-2xl font-light">
-                            Meet the distinguished academicians, researchers, and industry leaders driving the International Conference on AI-Driven Cybersecurity.
+                            Meet the distinguished academicians, researchers, and industry leaders driving the International Conference on AI Based Cyber Resilience (ICABCR-2026).
                         </p>
                     </motion.div>
                 </div>
@@ -286,8 +290,8 @@ const Community = () => {
                     <CommitteeSection title="Chief Patrons" icon={<Award size={20} />} members={COMMITTEE_DATA.chiefPatrons} />
                     <CommitteeSection title="Patrons" icon={<Award size={20} />} members={COMMITTEE_DATA.patrons} />
                     <CommitteeSection title="General Chairs" icon={<Users size={20} />} members={COMMITTEE_DATA.generalChairs} />
-                    <CommitteeSection title="Organizing Chairs (Convenors)" icon={<Users size={20} />} members={COMMITTEE_DATA.organizingChairs} />
-                    <CommitteeSection title="Organizing Co-Chairs" icon={<Users size={20} />} members={COMMITTEE_DATA.organizingCoChairs} />
+                    <CommitteeSection title="Organizing Chairs" icon={<Users size={20} />} members={COMMITTEE_DATA.organizingChairs} />
+                    <CommitteeSection title="Secretaries" icon={<BookOpen size={20} />} members={COMMITTEE_DATA.secretaries} />
                     <CommitteeSection title="Program (TPC) Chairs" icon={<BookOpen size={20} />} members={COMMITTEE_DATA.programChairs} />
                     <CommitteeSection title="Publication Chairs" icon={<BookOpen size={20} />} members={COMMITTEE_DATA.publicationChairs} />
                     <CommitteeSection title="International Advisory Board" icon={<Globe size={20} />} members={COMMITTEE_DATA.internationalAdvisory} />

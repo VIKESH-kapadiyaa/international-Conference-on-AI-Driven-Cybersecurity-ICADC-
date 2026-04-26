@@ -11,25 +11,30 @@ import heroImg from './assets/iilm-hero.png';
 import campusImg from './assets/iilm-campus.png';
 import workshopImg from './assets/iilm-workshop.png';
 import workflowImg from './assets/submission-workflow.jpg';
+import icabcrLogo from './assets/icabcr-logo.jpg';
+import novaLogo from './assets/nova-logo.jpg';
+import scopusLogo from './assets/scopus-logo.png';
 
 const ICADC_CONTENT = {
   deadlines: [
-    { label: "Submission Deadline", date: "30 May 2026", status: "Open", color: "text-emerald-600", bg: "bg-emerald-50" },
-    { label: "Notification", date: "30 July 2026", status: "Upcoming", color: "text-slate-500", bg: "bg-slate-50" },
-    { label: "Camera Ready", date: "30 Aug 2026", status: "Pending", color: "text-slate-500", bg: "bg-slate-50" },
-    { label: "Registration Closes", date: "15 Sep 2026", status: "Pending", color: "text-slate-500", bg: "bg-slate-50" }
+    { label: "Submission Deadline", date: "30 June 2026", status: "Open", color: "text-emerald-600", bg: "bg-emerald-50" },
+    { label: "Acceptance Notification", date: "30 July 2026", status: "Upcoming", color: "text-slate-500", bg: "bg-slate-50" },
+    { label: "Paper Registration Opens", date: "5 August 2026", status: "Pending", color: "text-slate-500", bg: "bg-slate-50" },
+    { label: "Paper Registration Closes", date: "15 September 2026", status: "Pending", color: "text-slate-500", bg: "bg-slate-50" },
+    { label: "Camera Ready Submission", date: "20 September 2026", status: "Pending", color: "text-slate-500", bg: "bg-slate-50" },
+    { label: "Conference Dates", date: "9–10 October 2026", status: "Pending", color: "text-slate-500", bg: "bg-slate-50" }
   ],
   tracks: [
-    { id: 1, category: "Intelligence", title: "Advanced Threat Detection", topics: ["Real-Time Anomaly Detection", "Reinforcement Learning for Behavioral Classification", "Graph Neural Networks for APT Attribution"] },
-    { id: 2, category: "Intelligence", title: "Secure & Trustworthy AI", topics: ["Defending Against Adversarial Attacks", "Federated Learning for Privacy", "Explainable AI (XAI) for SOC"] },
-    { id: 3, category: "Generative AI", title: "Generative AI in Cyber", topics: ["LLMs for Vulnerability Exploitation", "Diffusion Models for Attack Generation", "GAN-Based Synthetic Data Augmentation"] },
-    { id: 4, category: "Infrastructure", title: "Zero-Trust Architectures", topics: ["Behavioral Biometrics", "AI-Orchestrated Micro-Segmentation", "Dynamic Risk-Based Access Control"] },
-    { id: 5, category: "Infrastructure", title: "IoT & Edge Security", topics: ["Edge AI for DDoS Mitigation", "Lightweight Deep Learning for IoT", "AI-Driven Anomaly Detection in ICS"] },
-    { id: 6, category: "Governance", title: "Ethics & Policy", topics: ["Bias Mitigation Strategies", "GDPR & NIST Perspectives", "Ethical Frameworks for Autonomous Defense"] },
-    { id: 7, category: "Industry", title: "Industry Case Studies", topics: ["Deploying AI-Augmented SOCs", "Generative AI for Zero-Day Detection", "Public-Private Partnerships"] },
-    { id: 8, category: "Foundations", title: "Modern Cryptography", topics: ["Lightweight Cryptography", "Homomorphic Encryption", "Protocols for Secure Communication"] },
-    { id: 9, category: "Foundations", title: "Quantum Computing", topics: ["Quantum-Resistant Security", "Quantum Key Distribution", "Quantum Random Number Generation"] },
-    { id: 10, category: "Governance", title: "GRC & Auditing", topics: ["Auditing & Compliance", "Risk Analysis Measures", "Standards for Security & Privacy"] }
+    { id: 1, category: "Intelligence", title: "Advanced Threat Detection & Analytics", topics: ["Real-Time Anomaly Detection", "Reinforcement Learning for Behavioral Classification", "Graph Neural Networks for APT Attribution"] },
+    { id: 2, category: "Intelligence", title: "Secure & Trustworthy AI Systems", topics: ["Defending Against Adversarial Attacks", "Federated Learning for Privacy", "Explainable AI (XAI) for SOC"] },
+    { id: 3, category: "Generative AI", title: "Generative AI in Cybersecurity", topics: ["LLMs for Vulnerability Exploitation", "Diffusion Models for Attack Generation", "GAN-Based Synthetic Data Augmentation"] },
+    { id: 4, category: "Infrastructure", title: "AI-Enabled Zero-Trust Architectures", topics: ["Behavioral Biometrics", "AI-Orchestrated Micro-Segmentation", "Dynamic Risk-Based Access Control"] },
+    { id: 5, category: "Infrastructure", title: "AI in IoT/IIoT & Edge Security", topics: ["Edge AI for DDoS Mitigation", "Lightweight Deep Learning for IoT", "AI-Driven Anomaly Detection in ICS"] },
+    { id: 6, category: "Governance", title: "Regulatory, Ethical & Policy Dimensions", topics: ["Bias Mitigation Strategies", "GDPR & NIST Perspectives", "Ethical Frameworks for Autonomous Defense"] },
+    { id: 7, category: "Industry", title: "Industry Case Studies & Applications", topics: ["Deploying AI-Augmented SOCs", "Generative AI for Zero-Day Detection", "Public-Private Partnerships"] },
+    { id: 8, category: "Foundations", title: "Advancements in Cryptography", topics: ["Lightweight Cryptography", "Homomorphic Encryption", "Protocols for Secure Communication"] },
+    { id: 9, category: "Foundations", title: "Quantum Cryptography", topics: ["Quantum-Resistant Security", "Quantum Key Distribution", "Quantum Random Number Generation"] },
+    { id: 10, category: "Governance", title: "Security Policies, Auditing & Assurance", topics: ["Auditing & Compliance", "Risk Analysis Measures", "Standards for Security & Privacy"] }
   ],
   workshops: [
     { title: "Hands-on TensorFlow for Building AI Intrusion Detection Systems", desc: "A practical deep dive into building production-ready IDS using the latest TensorFlow frameworks.", seats: 24 },
@@ -225,7 +230,7 @@ const App = () => {
             >
               <div className="p-8 border-b border-slate-100 bg-slate-50/50 flex justify-between items-center">
                 <div>
-                  <p className="text-[10px] uppercase font-bold tracking-[0.2em] text-emerald-600 mb-2">ICADC 2026</p>
+                  <p className="text-[10px] uppercase font-bold tracking-[0.2em] text-emerald-600 mb-2">ICABCR 2026</p>
                   <h2 className="text-2xl font-serif text-slate-900">Secure Your Spot</h2>
                 </div>
                 <button
@@ -292,7 +297,7 @@ const App = () => {
               {/* Modal Header */}
               <div className="sticky top-0 bg-white z-10 p-6 md:p-8 border-b border-slate-100 flex justify-between items-center bg-white/95 backdrop-blur-sm">
                 <div>
-                  <p className="text-[9px] md:text-[10px] uppercase font-bold tracking-[0.2em] text-emerald-600 mb-1 md:mb-2">ICADC 2026</p>
+                  <p className="text-[9px] md:text-[10px] uppercase font-bold tracking-[0.2em] text-emerald-600 mb-1 md:mb-2">ICABCR 2026</p>
                   <h2 className="text-xl md:text-3xl font-serif text-slate-900">Conference Overview</h2>
                 </div>
                 <button
@@ -307,7 +312,7 @@ const App = () => {
               <div className="p-6 md:p-12 space-y-8 md:space-y-10 text-slate-600 leading-relaxed font-light text-base md:text-lg">
                 <section>
                   <p className="first-letter:text-4xl md:first-letter:text-5xl first-letter:font-serif first-letter:text-slate-900 first-letter:mr-2 md:first-letter:mr-3 first-letter:float-left">
-                    International Conference on AI-Driven Cybersecurity (ICADC) is a prestigious global forum that brings together academicians, industry experts, policymakers, and innovators to deliberate on cutting-edge developments at the intersection of Artificial Intelligence and Cybersecurity. In today’s era of rising cyber threats, rapid digitalisation, and widespread adoption of intelligent systems, ICADC addresses the urgent need for robust and proactive security solutions powered by AI.
+                    International Conference on AI Based Cyber Resilience (ICABCR-2026) is a prestigious global forum that brings together academicians, industry experts, policymakers, and innovators to deliberate on cutting-edge developments at the intersection of Artificial Intelligence and Cyber Resilience. In today's era of rising cyber threats, rapid digitalisation, and widespread adoption of intelligent systems, ICABCR-2026 addresses the urgent need for robust and proactive security solutions powered by AI.
                   </p>
                   <p className="mt-4">
                     The conference encourages insightful discussions on harnessing technologies such as machine learning, deep neural networks, generative AI, and hybrid intelligence to predict, detect, mitigate, and recover from sophisticated cyberattacks across critical sectors.
@@ -376,14 +381,16 @@ const App = () => {
         <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
           <div className="flex items-center gap-6">
             <a href="#" className="flex items-center gap-4 group">
-              {/* IMAGE 1: LOGO IN NAVBAR */}
+              {/* IILM Logo */}
               <img src={logoImg} alt="IILM Logo" className="h-12 w-auto object-contain opacity-90 group-hover:opacity-100 transition-all" />
-              <div className="flex flex-col">
-                <span className="font-serif font-bold text-2xl tracking-tighter flex items-center gap-2 transition-colors text-slate-950">
-                  ICADC <span className="font-light italic transition-colors text-slate-400 group-hover:text-slate-600">2026</span>
-                </span>
-                <span className="text-[9px] uppercase tracking-[0.4em] font-bold mt-1 transition-colors text-slate-500">International Forum</span>
-              </div>
+              {/* Divider */}
+              <span className="w-[1px] h-8 bg-slate-200"></span>
+              {/* ICABCR Logo */}
+              <img
+                src={icabcrLogo}
+                alt="ICABCR 2026"
+                className="h-10 w-auto object-contain mix-blend-multiply opacity-90 group-hover:opacity-100 transition-all"
+              />
             </a>
           </div>
 
@@ -510,9 +517,9 @@ const App = () => {
                   className="text-5xl md:text-8xl lg:text-[7rem] font-sans font-bold text-slate-900 leading-[1] md:leading-[0.95] tracking-tighter"
                 >
                   <span className="block text-2xl md:text-5xl font-sans font-light text-slate-400 mb-2 md:mb-4 tracking-normal">International Conference on</span>
-                  AI-Driven <br />
+                  AI Based <br />
                   <span className="relative inline-block">
-                    Cybersecurity
+                    Cyber Resilience
                     <motion.div
                       initial={{ width: 0 }}
                       animate={{ width: '100%' }}
@@ -525,8 +532,8 @@ const App = () => {
 
               {/* Description */}
               <motion.p variants={fadeInUp} className="text-lg md:text-2xl text-slate-600 font-light max-w-2xl leading-relaxed border-l-2 border-emerald-500 pl-4 md:pl-6">
-                Where <span className="font-semibold text-slate-900">Artificial Intelligence</span> meets <span className="font-semibold text-slate-900">Digital Defense</span>.
-                Join leading minds to redefine the architecture of trust.
+                Where <span className="font-semibold text-slate-900">Artificial Intelligence</span> meets <span className="font-semibold text-slate-900">Cyber Resilience</span>.
+                Join leading minds to redefine the future of intelligent digital defense.
               </motion.p>
 
               {/* Mobile Date Banner - Hidden on large screens where cards are visible */}
@@ -574,9 +581,9 @@ const App = () => {
               <div className="absolute left-8 top-10 bottom-10 w-[1px] bg-gradient-to-b from-slate-200 via-emerald-200 to-slate-200"></div>
 
               {[
-                { label: "Host", val: "IILM University", sub: "Greater Noida", icon: <MapPin size={24} className="text-emerald-600" /> },
-                { label: "Proceedings", val: "Springer Nature", sub: "Scopus Indexed", icon: <BookOpen size={24} className="text-blue-600" /> },
-                { label: "Date", val: "Oct 09-10", sub: "2026 Hybrid", icon: <Clock size={24} className="text-purple-600" /> }
+                { label: "Host", val: "IILM University", sub: "Greater Noida, India", icon: <MapPin size={24} className="text-emerald-600" /> },
+                { label: "Publisher", val: "Nova Science", sub: "Publishers — Scopus", icon: <BookOpen size={24} className="text-blue-600" /> },
+                { label: "Date", val: "Oct 09-10", sub: "2026 — Offline Mode", icon: <Clock size={24} className="text-purple-600" /> }
               ].map((stat, idx) => (
                 <motion.div
                   key={idx}
@@ -655,9 +662,10 @@ const App = () => {
                   <div className="bg-slate-900 text-white p-8 rounded-sm shadow-xl border-t-4 border-emerald-500">
                     <BookOpen className="mb-4 text-emerald-400" size={24} />
                     <h3 className="text-lg font-serif mb-2">Scopus Indexed Proceedings</h3>
-                    <p className="text-slate-400 text-sm mb-6 leading-relaxed">
-                      Accepted papers published in Springer Lecture Notes.
+                    <p className="text-slate-400 text-sm mb-5 leading-relaxed">
+                      Accepted papers published by Nova Science Publishers, submitted for possible Scopus indexing.
                     </p>
+
                     <a href="#" className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-emerald-400 hover:text-white transition-colors">
                       View Guidelines <ArrowRight size={14} />
                     </a>
@@ -672,10 +680,10 @@ const App = () => {
                     Bridging Theory & <br /> <span className="text-slate-400 italic">Practice.</span>
                   </h3>
                   <p className="text-lg leading-relaxed text-slate-600 text-pretty">
-                    <strong>International Conference on AI-Driven Cybersecurity (ICADC)</strong> serves as a premier global forum connecting visionaries from academia and industry.
+                    <strong>International Conference on AI Based Cyber Resilience (ICABCR-2026)</strong> serves as a premier global forum connecting visionaries from academia and industry.
                   </p>
                   <p className="mt-4 text-slate-500 font-light leading-relaxed">
-                    By converging <span className="text-emerald-700 font-medium">Artificial Intelligence</span> with robust <span className="text-slate-900 font-medium">Cybersecurity</span> protocols, we aim to define the future of digital trust. This forum addresses the critical need for adaptive defenses in an era of sophisticated, AI-generated cyber threats.
+                    By converging <span className="text-emerald-700 font-medium">Artificial Intelligence</span> with robust <span className="text-slate-900 font-medium">Cyber Resilience</span> strategies, we aim to define the future of digital trust. This forum addresses the critical need for adaptive defenses in an era of sophisticated, AI-generated cyber threats. Papers accepted by <strong className="text-slate-700">Nova Science Publishers</strong> will be submitted for possible Scopus indexing.
                   </p>
 
                   <button
@@ -945,9 +953,9 @@ const App = () => {
         <div className="container mx-auto px-6 md:px-12">
           <div className="grid lg:grid-cols-4 gap-16 mb-24 border-b border-white/10 pb-16">
             <div className="lg:col-span-2">
-              <span className="font-serif font-bold text-3xl text-white mb-8 block">ICADC 2026</span>
+              <span className="font-serif font-bold text-3xl text-white mb-8 block">ICABCR 2026</span>
               <p className="text-slate-400 font-light leading-relaxed max-w-sm mb-8">
-                Bridging the gap between AI innovation and cybersecurity resilience. Organized by IILM University for the global academic community.
+                Advancing AI-based cyber resilience for a safer digital world. Organized by IILM University, Greater Noida — Published by Nova Science Publishers.
               </p>
               <div className="flex gap-6">
                 {[Twitter, Linkedin, Globe].map((Icon, i) => (
@@ -974,11 +982,36 @@ const App = () => {
 
             <div>
               <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-slate-500 mb-8">Contact</h4>
-              <p className="text-sm text-slate-300 mb-2">conference@icadc2026.org</p>
+              <p className="text-sm text-slate-300 mb-2">conference@icabcr2026.org</p>
               <p className="text-sm text-slate-400 leading-relaxed">
                 Plot No. 16, Knowledge Park II, <br />
                 Greater Noida, UP 201306, India
               </p>
+            </div>
+          </div>
+
+          {/* --- PARTNERS STRIP --- */}
+          <div className="mb-12 pb-12 border-b border-white/10">
+            <p className="text-[10px] uppercase font-bold tracking-[0.3em] text-slate-500 mb-8">Publishing &amp; Indexing Partners</p>
+            <div className="flex flex-wrap items-center gap-6">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                className="bg-white rounded-lg px-6 py-4 flex items-center justify-center shadow-lg shadow-black/20 cursor-pointer"
+              >
+                <img src={novaLogo} alt="Nova Science Publishers" className="h-10 w-auto object-contain" />
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                className="bg-white rounded-lg px-6 py-4 flex items-center justify-center shadow-lg shadow-black/20 cursor-pointer"
+              >
+                <img src={scopusLogo} alt="Scopus" className="h-10 w-auto object-contain" />
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                className="bg-white rounded-lg px-4 py-3 flex items-center justify-center shadow-lg shadow-black/20 cursor-pointer"
+              >
+                <img src={logoImg} alt="IILM University" className="h-10 w-auto object-contain" />
+              </motion.div>
             </div>
           </div>
 
