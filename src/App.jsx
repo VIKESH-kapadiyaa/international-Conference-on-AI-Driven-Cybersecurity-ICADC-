@@ -571,7 +571,7 @@ const App = () => {
               {/* Description */}
               <motion.p variants={fadeInUp} className="text-lg md:text-2xl text-slate-600 font-light max-w-2xl leading-relaxed border-l-2 border-emerald-500 pl-4 md:pl-6">
                 Where <span className="font-semibold text-slate-900">Artificial Intelligence</span> meets <span className="font-semibold text-slate-900">Cyber Resilience</span>.
-                Join leading minds to redefine the future of intelligent digital defense. Join us on Oct 09-10, 2026.
+                Join leading minds to redefine the future of intelligent digital defense. Oct 09-10, 2026.
               </motion.p>
 
               {/* Mobile Date Banner - Hidden on large screens where cards are visible */}
