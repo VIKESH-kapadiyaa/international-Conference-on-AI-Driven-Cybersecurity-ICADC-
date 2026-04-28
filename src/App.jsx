@@ -574,6 +574,19 @@ const App = () => {
                 Join leading minds to redefine the future of intelligent digital defense. Oct 09-10, 2026.
               </motion.p>
 
+              {/* Submissions Open Banner */}
+              <motion.div variants={fadeInUp} className="pt-2">
+                <div className="inline-flex bg-emerald-50 border border-emerald-200 px-6 py-3 items-center gap-4 rounded-sm shadow-sm shadow-emerald-100/50">
+                  <span className="relative flex h-3 w-3">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-600"></span>
+                  </span>
+                  <span className="text-lg md:text-xl font-bold text-emerald-800 tracking-widest uppercase">
+                    Submissions Open
+                  </span>
+                </div>
+              </motion.div>
+
               {/* Mobile Date Banner - Hidden on large screens where cards are visible */}
               <motion.div variants={fadeInUp} className="lg:hidden flex items-center gap-4 py-3 px-4 bg-white/80 backdrop-blur-sm border border-slate-200 rounded-sm shadow-sm">
                 <Calendar size={18} className="text-emerald-600" />
