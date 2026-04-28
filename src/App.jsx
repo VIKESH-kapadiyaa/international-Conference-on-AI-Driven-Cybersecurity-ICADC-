@@ -382,19 +382,19 @@ const App = () => {
           <div className="flex items-center gap-6">
             <a href="#" className="flex items-center gap-4 group">
               {/* IILM Logo */}
-              <img src={logoImg} alt="IILM Logo" className="h-12 w-auto object-contain opacity-90 group-hover:opacity-100 transition-all" />
+              <img src={logoImg} alt="IILM Logo" className="h-10 xl:h-12 w-auto object-contain opacity-90 group-hover:opacity-100 transition-all" />
               {/* Divider */}
-              <span className="w-[1px] h-8 bg-slate-200"></span>
+              <span className="w-[1px] h-6 xl:h-8 bg-slate-200"></span>
               {/* ICABCR Logo */}
               <img
                 src={icabcrLogo}
                 alt="ICABCR 2026"
-                className="h-10 w-auto object-contain mix-blend-multiply opacity-90 group-hover:opacity-100 transition-all"
+                className="h-8 xl:h-10 w-auto object-contain mix-blend-multiply opacity-90 group-hover:opacity-100 transition-all"
               />
             </a>
           </div>
 
-          <div className="hidden lg:flex items-center gap-12">
+          <div className="hidden xl:flex items-center gap-4 2xl:gap-8">
             <NavItem href="#about" label="About" scrolled={true} />
             <NavItem href="#expectations" label="Tracks" scrolled={true} />
             <NavItem href="#milestones" label="Dates" scrolled={true} />
@@ -408,25 +408,50 @@ const App = () => {
               <span className="absolute -bottom-2 left-0 w-full h-[1px] bg-slate-950 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
             </Link>
 
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => setShowRegisterModal(true)}
-              className="px-8 py-3 text-[10px] font-bold uppercase tracking-[0.25em] transition-all shadow-lg bg-slate-950 text-white shadow-slate-900/10 hover:bg-emerald-600"
+            <Link
+              to="/editors"
+              className="relative text-xs font-bold uppercase tracking-[0.2em] transition-colors duration-300 group text-slate-600 hover:text-slate-950"
             >
-              Register Now
-            </motion.button>
+              Editors
+              <span className="absolute -bottom-2 left-0 w-full h-[1px] bg-slate-950 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
+            </Link>
+
+            <Link
+              to="/advisory"
+              className="relative text-xs font-bold uppercase tracking-[0.2em] transition-colors duration-300 group text-slate-600 hover:text-slate-950"
+            >
+              Advisory
+              <span className="absolute -bottom-2 left-0 w-full h-[1px] bg-slate-950 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
+            </Link>
+
+            <Link
+              to="/submission"
+              className="relative text-xs font-bold uppercase tracking-[0.2em] transition-colors duration-300 group text-slate-600 hover:text-slate-950"
+            >
+              Submissions
+              <span className="absolute -bottom-2 left-0 w-full h-[1px] bg-slate-950 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
+            </Link>
+
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Link
+                to="/submission"
+                className="px-8 py-3 text-[10px] font-bold uppercase tracking-[0.25em] transition-all shadow-lg bg-slate-950 text-white shadow-slate-900/10 hover:bg-emerald-600 inline-block text-center"
+              >
+                Submit Paper
+              </Link>
+            </motion.div>
           </div>
 
-          <div className="lg:hidden flex items-center gap-4">
+          <div className="xl:hidden flex items-center gap-4">
             {/* Sticky Mobile Register Button */}
-            <motion.button
-              whileTap={{ scale: 0.95 }}
-              onClick={() => setShowRegisterModal(true)}
-              className="px-4 py-2 text-[9px] font-bold uppercase tracking-widest rounded-sm bg-slate-950 text-white shadow-md"
-            >
-              Register
-            </motion.button>
+            <motion.div whileTap={{ scale: 0.95 }}>
+              <Link
+                to="/submission"
+                className="px-4 py-2 text-[9px] font-bold uppercase tracking-widest rounded-sm bg-slate-950 text-white shadow-md inline-block text-center"
+              >
+                Submit
+              </Link>
+            </motion.div>
             <button className="text-slate-900" onClick={() => setIsMenuOpen(!isMenuOpen)}>
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -455,12 +480,34 @@ const App = () => {
             >
               Committee
             </Link>
-            <button
-              onClick={() => { setIsMenuOpen(false); setShowRegisterModal(true); }}
-              className="mt-8 bg-slate-950 text-white px-10 py-4 text-xs font-bold uppercase tracking-widest"
+            <Link
+              to="/editors"
+              onClick={() => setIsMenuOpen(false)}
+              className="text-3xl font-serif text-slate-900 hover:italic transition-all"
             >
-              Register
-            </button>
+              Editors
+            </Link>
+            <Link
+              to="/advisory"
+              onClick={() => setIsMenuOpen(false)}
+              className="text-3xl font-serif text-slate-900 hover:italic transition-all"
+            >
+              Advisory Boards
+            </Link>
+            <Link
+              to="/submission"
+              onClick={() => setIsMenuOpen(false)}
+              className="text-3xl font-serif text-slate-900 hover:italic transition-all"
+            >
+              Submission Guidelines
+            </Link>
+            <Link
+              to="/submission"
+              onClick={() => setIsMenuOpen(false)}
+              className="mt-8 bg-slate-950 text-white px-10 py-4 text-xs font-bold uppercase tracking-widest block text-center"
+            >
+              Submit Paper
+            </Link>
           </motion.div>
         )}
       </AnimatePresence>
@@ -511,29 +558,20 @@ const App = () => {
               </motion.div>
 
               {/* Headline */}
-              <div className="relative">
-                <motion.h1
-                  variants={fadeInUp}
-                  className="text-5xl md:text-8xl lg:text-[7rem] font-sans font-bold text-slate-900 leading-[1] md:leading-[0.95] tracking-tighter"
-                >
-                  <span className="block text-2xl md:text-5xl font-sans font-light text-slate-400 mb-2 md:mb-4 tracking-normal">International Conference on</span>
-                  AI Based <br />
-                  <span className="relative inline-block">
-                    Cyber Resilience
-                    <motion.div
-                      initial={{ width: 0 }}
-                      animate={{ width: '100%' }}
-                      transition={{ delay: 1, duration: 1.5, ease: "circOut" }}
-                      className="absolute bottom-1 md:bottom-2 left-0 h-2 md:h-4 bg-emerald-100/50 -z-10 skew-x-12"
-                    />
-                  </span>
-                </motion.h1>
-              </div>
+              <motion.h1
+                variants={fadeInUp}
+                className="text-4xl md:text-5xl lg:text-6xl font-sans text-slate-900 font-light mb-4 leading-tight"
+              >
+                International Conference on AI Based Cyber Resilience
+              </motion.h1>
+              <motion.div variants={fadeInUp} className="text-2xl md:text-3xl font-semibold text-emerald-600 mb-8 tracking-wide">
+                Oct 09-10, 2026
+              </motion.div>
 
               {/* Description */}
               <motion.p variants={fadeInUp} className="text-lg md:text-2xl text-slate-600 font-light max-w-2xl leading-relaxed border-l-2 border-emerald-500 pl-4 md:pl-6">
                 Where <span className="font-semibold text-slate-900">Artificial Intelligence</span> meets <span className="font-semibold text-slate-900">Cyber Resilience</span>.
-                Join leading minds to redefine the future of intelligent digital defense.
+                Join leading minds to redefine the future of intelligent digital defense. Join us on Oct 09-10, 2026.
               </motion.p>
 
               {/* Mobile Date Banner - Hidden on large screens where cards are visible */}
@@ -550,14 +588,15 @@ const App = () => {
                 <CountdownTimer />
 
                 <div className="flex flex-wrap gap-4">
-                  <motion.button
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    onClick={() => document.getElementById('workflow')?.scrollIntoView({ behavior: 'smooth' })}
-                    className="flex-1 md:flex-none px-6 md:px-10 py-4 md:py-5 bg-slate-900 text-white text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] shadow-xl rounded-sm flex items-center justify-center gap-3 group"
-                  >
-                    Submit Paper <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-                  </motion.button>
+                  <Link to="/submission">
+                    <motion.button
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      className="flex-1 md:flex-none px-6 md:px-10 py-4 md:py-5 bg-slate-900 text-white text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] shadow-xl rounded-sm flex items-center justify-center gap-3 group"
+                    >
+                      Submit Paper <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                    </motion.button>
+                  </Link>
                   <motion.button
                     whileHover={{ scale: 1.02, backgroundColor: "#fff" }}
                     whileTap={{ scale: 0.98 }}
